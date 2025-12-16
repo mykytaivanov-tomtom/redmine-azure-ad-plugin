@@ -8,7 +8,7 @@ class RedmineOauthController < AccountController
   def oauth_azure
     if Setting.plugin_redmine_azure_ad_plugin[:azure_oauth_authentication]
       session[:back_url] = params[:back_url]
-      redirect_to oauth_client.auth_code.authorize_url(:redirect_uri => oauth_azure_callback_url, :scope => scopes)
+      redirect_to oauth_client.auth_code.authorize_url(:redirect_uri => https_callback_url, :scope => scopes)
     else
       password_authentication
     end
@@ -19,7 +19,7 @@ class RedmineOauthController < AccountController
       flash[:error] = l(:notice_access_denied)
       redirect_to signin_path
     else
-      token = oauth_client.auth_code.get_token(params[:code], :redirect_uri => oauth_azure_callback_url, :resource => "00000002-0000-0000-c000-000000000000")
+      token = oauth_client.auth_code.get_token(params[:code], :redirect_uri => https_callback_url, :resource => "00000002-0000-0000-c000-000000000000")
       user_info = JWT.decode(token.token, nil, false)
       logger.error user_info
       
@@ -103,6 +103,11 @@ class RedmineOauthController < AccountController
 
   def scopes
     'user:email'
+  end
+
+  # Generate HTTPS callback URL for Azure AD (Azure requires HTTPS)
+  def https_callback_url
+    oauth_azure_callback_url(protocol: 'https', host: request.host, port: request.port == 80 ? nil : request.port)
   end
 
   private

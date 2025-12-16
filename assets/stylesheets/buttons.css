@@ -1,8 +1,11 @@
 /* Container for centering */
 .azure-login-container {
   text-align: center;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
 }
 
 /* Hide standard login form - only show Microsoft button */
@@ -10,12 +13,18 @@ body.controller-account.action-login #login-form form {
   display: none !important;
 }
 
+/* Position login-form for absolute centering */
+body.controller-account.action-login #login-form {
+  position: relative;
+  min-height: 400px;
+}
+
 /* Header text above button */
 .azure-login-header {
   color: #333;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   margin-top: 0;
 }
 
@@ -24,14 +33,14 @@ body.controller-account.action-login #login-form form {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 20px;
+  gap: 10px;
+  padding: 14px 28px;
   background: linear-gradient(to bottom, #ffffff, #f5f5f5);
   border: 1px solid #8c8c8c;
   border-radius: 4px;
   text-decoration: none;
   color: #333;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
   transition: all 0.2s ease;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -51,8 +60,8 @@ body.controller-account.action-login #login-form form {
 
 /* Azure icon */
 .azure-login-icon {
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
   vertical-align: middle;
 }
 

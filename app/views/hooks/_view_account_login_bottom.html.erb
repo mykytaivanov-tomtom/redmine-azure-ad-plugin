@@ -2,8 +2,9 @@
 
 <% if Setting.plugin_redmine_azure_ad_plugin[:azure_oauth_authentication] %>
   <div class="azure-login-container">
+    <p class="azure-login-header"><%= l(:sign_in_to_continue) %></p>
     <%= link_to oauth_azure_path(:back_url => back_url), :class => 'azure-login-button' do %>
-      <%= image_tag('azure_login_icon.png', :plugin => 'redmine_azure_ad_plugin', :class => 'azure-login-icon') %>
+      <%= image_tag('microsoft_icon.webp', :plugin => 'redmine_azure_ad_plugin', :class => 'azure-login-icon') %>
       <span class="azure-login-text"><%= l(:login_via_azure) %></span>
     <% end %>
   </div>

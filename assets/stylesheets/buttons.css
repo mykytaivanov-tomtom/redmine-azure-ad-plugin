@@ -5,6 +5,15 @@
   margin-bottom: 10px;
 }
 
+/* Header text above button */
+.azure-login-header {
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
 /* Azure login button */
 .azure-login-button {
   display: inline-flex;

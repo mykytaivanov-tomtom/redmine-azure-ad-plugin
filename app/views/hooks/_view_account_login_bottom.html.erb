@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag 'buttons', :plugin => 'redmine_azure_ad_plugin' %>
 
 <% if Setting.plugin_redmine_azure_ad_plugin[:azure_oauth_authentication] %>
-  <%= link_to oauth_azure_path(:back_url => back_url) do %>
-    <%= button_tag :class => 'button-login' do %>
-      <%= image_tag('/plugin_assets/redmine_azure_ad_plugin/images/azure_login_icon.png', :class => 'button-login-icon', :alt => l(:login_via_azure)) %>
-      <%= content_tag :div, l(:login_via_azure), :class => 'button-login-text' %>
+  <div class="azure-login-container">
+    <%= link_to oauth_azure_path(:back_url => back_url), :class => 'azure-login-button' do %>
+      <%= image_tag('azure_login_icon.png', :plugin => 'redmine_azure_ad_plugin', :class => 'azure-login-icon') %>
+      <span class="azure-login-text"><%= l(:login_via_azure) %></span>
     <% end %>
-  <% end %>
+  </div>
 <% end %>

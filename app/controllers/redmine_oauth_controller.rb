@@ -106,8 +106,9 @@ class RedmineOauthController < AccountController
   end
 
   # Generate HTTPS callback URL for Azure AD (Azure requires HTTPS)
+  # Using port 8080 for HTTPS
   def https_callback_url
-    oauth_azure_callback_url(protocol: 'https', host: request.host, port: request.port == 80 ? nil : request.port)
+    oauth_azure_callback_url(protocol: 'https', host: request.host, port: 8080)
   end
 
   private

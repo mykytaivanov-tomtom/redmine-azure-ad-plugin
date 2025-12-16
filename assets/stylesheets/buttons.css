@@ -5,6 +5,12 @@
   margin-bottom: 10px;
 }
 
+/* Hide standard login form - only show Microsoft button */
+body.controller-account.action-login #login-form > p:not(.azure-login-container),
+body.controller-account.action-login #login-form table {
+  display: none !important;
+}
+
 /* Header text above button */
 .azure-login-header {
   color: #333;

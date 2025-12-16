@@ -5,8 +5,8 @@
   margin-bottom: 10px;
 }
 
-/* Hide all standard login form elements - only show Microsoft button */
-body.controller-account.action-login #login-form > *:not(.azure-login-container) {
+/* Hide standard login form - only show Microsoft button */
+body.controller-account.action-login #login-form form {
   display: none !important;
 }
 

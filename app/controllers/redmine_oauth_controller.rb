@@ -6,7 +6,7 @@ class RedmineOauthController < AccountController
   include Helpers::MailHelper
   include Helpers::Checker
   def oauth_azure
-    if Setting.plugin_redmine_omniauth_azure[:azure_oauth_authentication]
+    if Setting.plugin_redmine_azure_ad_plugin[:azure_oauth_authentication]
       session[:back_url] = params[:back_url]
       redirect_to oauth_client.auth_code.authorize_url(:redirect_uri => oauth_azure_callback_url, :scope => scopes)
     else
@@ -98,7 +98,7 @@ class RedmineOauthController < AccountController
   end
 
   def settings
-    @settings ||= Setting.plugin_redmine_omniauth_azure
+    @settings ||= Setting.plugin_redmine_azure_ad_plugin
   end
 
   def scopes

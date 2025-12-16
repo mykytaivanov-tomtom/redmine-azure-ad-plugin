@@ -1,7 +1,7 @@
 require 'redmine'
-require_dependency 'redmine_omniauth_azure/hooks'
+require_dependency 'redmine_azure_ad_plugin/hooks'
 
-Redmine::Plugin.register :redmine_omniauth_azure do
+Redmine::Plugin.register :redmine_azure_ad_plugin do
   name 'Redmine Omniauth Azure plugin'
   author 'Kalips2'
   description 'This is a plugin for Redmine registration through Azure AD'
